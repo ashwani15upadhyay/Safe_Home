@@ -36,6 +36,10 @@ public class UserController {
         UserResponse<User> apiResponse;
 
         try {
+            if (userService.existsByEmployeeId(user.getEmployeeId())) {
+                apiResponse = new UserResponse<>(false, "User already exists", null);
+                return ResponseEntity.status(HttpStatus.CONFLICT).body(apiResponse);
+            }
             User createdUser = userService.saveUser(user);
             apiResponse = new UserResponse<>(true, "User created successfully", createdUser);
             return ResponseEntity.status(HttpStatus.CREATED).body(apiResponse);

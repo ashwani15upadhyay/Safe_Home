@@ -98,5 +98,10 @@ public class UserServiceImpl implements UserService {
         return userRepo.save(existingUser);
     }
 
+    @Override
+    public boolean existsByEmployeeId(String employeeId) {
+        return userRepo.existsByEmployeeId(employeeId);
+    }
+
 
 }

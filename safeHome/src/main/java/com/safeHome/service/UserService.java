@@ -19,6 +19,8 @@ public interface UserService {
 
     User updateLocation(String employeeId, UpdateModel updateModel) throws ResourceNotFoundExp;
 
+    boolean existsByEmployeeId(String employeeId) throws  ResourceNotFoundExp;
+
 
 
 }
